@@ -1,0 +1,90 @@
+@import './_normalize.scss';
+@import './responsive.scss';
+@import './colors';
+@import './_animations.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400&display=swap');
+
+$containerBackgroundColor: #f5f5f5;
+$scrollbarWidth:           1.2rem;
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin:      0;
+	padding:     0;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+html {
+	font-family:                 sans-serif;
+	font-size:                   62.5%;
+	word-spacing:                0.1rem;
+	-ms-text-size-adjust:        100%;
+	-webkit-text-size-adjust:    100%;
+	-moz-osx-font-smoothing:     grayscale;
+	-webkit-font-smoothing:      antialiased;
+	overflow:                    hidden;
+	-webkit-tap-highlight-color: transparent;
+	font-weight:                 400;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+	font-size: 1.6rem;
+}
+
+ul {
+	padding:    0;
+	margin:     0;
+	list-style: none;
+}
+
+$scrollbarBackgroundColor: darken($color__light, 30);
+
+.scrollBar {
+	overflow-y: overlay;
+	height:     100%;
+
+	&:hover {
+		&.scrollBar::-webkit-scrollbar-thumb {
+			background-color: $scrollbarBackgroundColor;
+			border-color:     $containerBackgroundColor;
+
+			&:hover {
+				background-color: lighten($scrollbarBackgroundColor, 10);
+			}
+
+			&:active {
+				background-color: $color__dark;
+			}
+		}
+	}
+
+	&.scrollBar::-webkit-scrollbar {
+		width: $scrollbarWidth;
+
+		@include isMobile {
+			width:  0;
+			height: 0;
+		}
+	}
+
+	&.scrollBar::-webkit-scrollbar-thumb {
+		background-color: transparent;
+		border-radius:    #{$scrollbarWidth / 2};
+		border:           3px solid transparent;
+	}
+}
+
+.pageContainer {
+	max-width:    80rem;
+	width:        100%;
+	margin-left:  auto;
+	margin-right: auto;
+}
