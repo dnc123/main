@@ -1,4 +1,4 @@
-import modules from './ff/core/constants/modules';
+import modules from './features/core/constants/modules';
 export default {
     protocol: 'http',
     domain: 'localhost',

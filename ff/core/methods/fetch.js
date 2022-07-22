@@ -1,7 +1,7 @@
 import getProjectURL from './getProjectURL';
 import getCookie from '../../../helpers/cookie/get';
 import { authCookieKeyJWT } from '../../auth/constants';
-import modules from '../constants/modules';
+import modules from '../../../features/core/constants/modules';
 export async function get(endpoint, payload = {}) {
     let targetURL = getProjectURL(modules.api, endpoint);
     if (payload) {
