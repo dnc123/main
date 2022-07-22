@@ -1,5 +1,5 @@
 <script setup>
-    import Map from '../../featuresnew/map/components/Map.vue';
+    import Map from '../../ff/map/components/Map.vue';
 </script>
 
 <template>

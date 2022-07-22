@@ -211,7 +211,7 @@
     @import '../styles/document';
 </style>
 <script>
-    import Page from '../featuresnew/core/components/Page';
+    import Page from '../ff/core/components/Page';
 
     export default {
         components: {Page},

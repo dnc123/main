@@ -1,4 +1,4 @@
-import modules from './featuresnew/core/constants/modules';
+import modules from './ff/core/constants/modules';
 
 export default {
 	protocol: 'http',
