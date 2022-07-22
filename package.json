@@ -6,7 +6,7 @@
     "scripts": {
         "test": "jest",
         "compile": "tsc --declaration",
-        "push-to-github": "git add . && git commit -m \"publish\" && git push",
+        "push-to-github": "git add . && git commit --allow-empty -m \"publish\" && git push",
         "pub": "npm run compile && npm run test && npm version patch --force && npm run push-to-github && npm publish"
     },
     "author": "",
