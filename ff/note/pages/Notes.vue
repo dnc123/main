@@ -27,7 +27,7 @@
 
 <script>
     // import Fab from '../../../featuresnew/core/components/Fab';
-    import Page from '../../../featuresnew/core/components/Page';
+    import Page from '../../core/components/Page';
     // import Checklist from '../components/Checklist';
     // import { checklistNamespace, checklistStateAll } from '../vuex/constants';
     // import Illustration from '../../core/components/Illustration';
