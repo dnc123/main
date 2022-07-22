@@ -1,4 +1,4 @@
-import getProjectURL from './getProjectURL';
+import getProjectURL from '../../../features/core/methods/getProjectURL';
 import getCookie from '../../../helpers/cookie/get';
 import { authCookieKeyJWT } from '../../auth/constants';
 import modules from '../../../features/core/constants/modules';
