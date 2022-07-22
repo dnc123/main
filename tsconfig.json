@@ -1,0 +1,24 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "allowJs": false,
+        "esModuleInterop": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+
+        "lib": [
+            "es2019",
+            "dom"
+        ]
+    },
+
+    "exclude": [
+        "dist",
+        "node_modules",
+        "development"
+    ]
+}
