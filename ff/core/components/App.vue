@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import {useEventBus} from '../composables/useEventBus';
+    import {useEventBus} from '../../../features/core/composables/useEventBus';
     import {eventBusKeyModalOpen, eventButKeyToastCreate} from '../constants';
     import {onBeforeMount} from 'vue';
 

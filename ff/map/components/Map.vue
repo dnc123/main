@@ -37,7 +37,7 @@
 
 <script setup>
     import {onMounted, onBeforeMount, ref} from 'vue';
-    import {useEventBus} from '../../core/composables/useEventBus.ts';
+    import {useEventBus} from '../../../features/core/composables/useEventBus.ts';
     import {getClient} from '../../../api/leaflet.ts';
 
     let mapCount = 0;

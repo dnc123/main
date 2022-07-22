@@ -1,6 +1,6 @@
 import generateUnique from '../../../helpers/string/generateUnique';
 import {eventBusKeyToastRemove, eventButKeyToastCreate} from '../constants';
-import {useEventBus} from '../composables/useEventBus';
+import {useEventBus} from '../../../features/core/composables/useEventBus';
 
 type ToastType = 'danger' | 'success' | 'neutral';
 

@@ -16,7 +16,7 @@
 <script>
     import Icon from './Icon';
     import removeFromArrayByKey from '../../../helpers/array/removeFromArrayByKey';
-    import {useEventBus} from '../composables/useEventBus';
+    import {useEventBus} from '../../../features/core/composables/useEventBus';
     import {eventButKeyToastCreate, eventBusKeyToastRemove} from '../constants';
 
     export default {

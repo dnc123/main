@@ -34,7 +34,7 @@
 
 <script>
     import Icon from './Icon';
-    import {useEventBus} from '../composables/useEventBus';
+    import {useEventBus} from '../../../features/core/composables/useEventBus';
     import {eventBusKeyModalClose, eventBusKeyModalOpen} from '../constants';
     import Spinner from './Spinner';
 
