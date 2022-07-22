@@ -1,12 +1,12 @@
 {
     "name": "@donatas123/main",
-    "version": "1.0.180",
+    "version": "1.0.181",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "jest",
         "compile": "tsc --declaration",
-        "pub": "npm run compile && npm run test && npm version patch --force && npm publish"
+        "pub": "npm run compile && npm run test && npm version patch --force && git add . && git commit -m 'publish' && git push && npm publish"
     },
     "author": "",
     "license": "ISC",
