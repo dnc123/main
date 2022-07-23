@@ -1,4 +1,7 @@
-export const openWeatherIconIDs = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.openWeatherIconIDs = void 0;
+exports.openWeatherIconIDs = {
     thunderstormWithLightRain: 200,
     thunderstormWithRain: 201,
     thunderstormWithHeavyRain: 202,

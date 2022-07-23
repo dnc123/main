@@ -1,51 +1,56 @@
-import formatDate from '../date/formatDate';
-import addTimezoneOffset from '../date/addTimezoneOffset';
-import formatTime from '../date/formatTime';
-import removeTimezoneOffset from '../date/removeTimezoneOffset';
-import getLatestDate from '../date/getLatestDate';
-import getEarliestDate from '../date/getEarliestDate';
-import formatDateTime from '../date/formatDateTime';
-import isDateObject from '../date/isDateObject';
-import isDateString from '../date/isDateString';
-test(`Date time format`, () => {
-    expect(formatDateTime(new Date(`2011-11-23 14:30:22`)))
-        .toEqual(`2011-11-23 14:30:22`);
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var formatDate_1 = __importDefault(require("../date/formatDate"));
+var addTimezoneOffset_1 = __importDefault(require("../date/addTimezoneOffset"));
+var formatTime_1 = __importDefault(require("../date/formatTime"));
+var removeTimezoneOffset_1 = __importDefault(require("../date/removeTimezoneOffset"));
+var getLatestDate_1 = __importDefault(require("../date/getLatestDate"));
+var getEarliestDate_1 = __importDefault(require("../date/getEarliestDate"));
+var formatDateTime_1 = __importDefault(require("../date/formatDateTime"));
+var isDateObject_1 = __importDefault(require("../date/isDateObject"));
+var isDateString_1 = __importDefault(require("../date/isDateString"));
+test("Date time format", function () {
+    expect(formatDateTime_1.default(new Date("2011-11-23 14:30:22")))
+        .toEqual("2011-11-23 14:30:22");
 });
-test(`Date format`, () => {
-    expect(formatDate(new Date(`2011-11-23 14:30:22`)))
-        .toEqual(`2011-11-23`);
+test("Date format", function () {
+    expect(formatDate_1.default(new Date("2011-11-23 14:30:22")))
+        .toEqual("2011-11-23");
 });
-test(`Time format`, () => {
-    expect(formatTime(new Date(`2011-11-23 14:30:22`)))
-        .toEqual(`14:30:22`);
+test("Time format", function () {
+    expect(formatTime_1.default(new Date("2011-11-23 14:30:22")))
+        .toEqual("14:30:22");
 });
-test(`Is date object`, () => {
-    expect(isDateObject(new Date(`2011-11-23 14:30:22`))).toBeTruthy();
+test("Is date object", function () {
+    expect(isDateObject_1.default(new Date("2011-11-23 14:30:22"))).toBeTruthy();
 });
-test(`Is date object`, () => {
-    expect(isDateString(`2011-11-23 14:30:22`)).toBeFalsy();
-    expect(isDateString(`2011-11-23`)).toBeTruthy();
+test("Is date object", function () {
+    expect(isDateString_1.default("2011-11-23 14:30:22")).toBeFalsy();
+    expect(isDateString_1.default("2011-11-23")).toBeTruthy();
 });
-test(`Get latest date`, () => {
-    const date1 = new Date(`2011-11-23 14:30:22`);
-    const date2 = new Date(`2011-11-24 14:30:22`);
-    const date3 = new Date(`2011-11-25 14:30:22`);
-    expect(getLatestDate(date1)).toMatchObject(date1);
-    expect(getLatestDate([date1, date3, date2]))
+test("Get latest date", function () {
+    var date1 = new Date("2011-11-23 14:30:22");
+    var date2 = new Date("2011-11-24 14:30:22");
+    var date3 = new Date("2011-11-25 14:30:22");
+    expect(getLatestDate_1.default(date1)).toMatchObject(date1);
+    expect(getLatestDate_1.default([date1, date3, date2]))
         .toMatchObject(date3);
 });
-test(`Get earliest date`, () => {
-    const date1 = new Date(`2011-11-23 14:30:22`);
-    const date2 = new Date(`2011-11-24 14:30:22`);
-    const date3 = new Date(`2011-11-25 14:30:22`);
-    expect(getEarliestDate(date1)).toMatchObject(date1);
-    expect(getEarliestDate([date1, date3, date1, date2]))
+test("Get earliest date", function () {
+    var date1 = new Date("2011-11-23 14:30:22");
+    var date2 = new Date("2011-11-24 14:30:22");
+    var date3 = new Date("2011-11-25 14:30:22");
+    expect(getEarliestDate_1.default(date1)).toMatchObject(date1);
+    expect(getEarliestDate_1.default([date1, date3, date1, date2]))
         .toMatchObject(date1);
 });
-test(`Timezone manipulation`, () => {
-    let date = new Date(`2011-11-23 14:30:22`);
-    date = removeTimezoneOffset(date);
-    date = addTimezoneOffset(date);
-    expect(formatDateTime(date))
-        .toEqual(`2011-11-23 14:30:22`);
+test("Timezone manipulation", function () {
+    var date = new Date("2011-11-23 14:30:22");
+    date = removeTimezoneOffset_1.default(date);
+    date = addTimezoneOffset_1.default(date);
+    expect(formatDateTime_1.default(date))
+        .toEqual("2011-11-23 14:30:22");
 });

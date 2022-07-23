@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var modules;
 (function (modules) {
     modules["admin"] = "admin";
@@ -8,4 +10,4 @@ var modules;
     modules["needcaradmin"] = "needcaradmin";
     modules["needcar"] = "needcar";
 })(modules || (modules = {}));
-export default modules;
+exports.default = modules;

@@ -1,6 +1,9 @@
-import { createHmac } from 'crypto';
-export default function (value, salt) {
-    return createHmac(`sha256`, salt)
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var crypto_1 = require("crypto");
+function default_1(value, salt) {
+    return crypto_1.createHmac("sha256", salt)
         .update(value)
-        .digest(`hex`);
+        .digest("hex");
 }
+exports.default = default_1;

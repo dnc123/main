@@ -1,11 +1,15 @@
-export default function (keyValQueryParams = {}) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(keyValQueryParams) {
+    if (keyValQueryParams === void 0) { keyValQueryParams = {}; }
     return Object.keys(keyValQueryParams)
-        .filter((key) => {
+        .filter(function (key) {
         return keyValQueryParams[key] !== null
-            && typeof keyValQueryParams[key] !== `undefined`;
+            && typeof keyValQueryParams[key] !== "undefined";
     })
-        .map((key) => {
-        return `${key}=${keyValQueryParams[key]}`;
+        .map(function (key) {
+        return key + "=" + keyValQueryParams[key];
     })
-        .join(`&`);
+        .join("&");
 }
+exports.default = default_1;
