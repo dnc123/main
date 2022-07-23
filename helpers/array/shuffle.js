@@ -1,4 +1,6 @@
-export default function (targetArray) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(targetArray) {
     if (Array.isArray(targetArray) && targetArray.length <= 1) {
         return;
     }
@@ -7,3 +9,4 @@ export default function (targetArray) {
         [targetArray[i], targetArray[j]] = [targetArray[j], targetArray[i]];
     }
 }
+exports.default = default_1;

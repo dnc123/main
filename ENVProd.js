@@ -1,16 +1,21 @@
-import modules from './features/core/constants/modules';
-export default {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const modules_1 = __importDefault(require("./features/core/constants/modules"));
+exports.default = {
     protocol: 'https',
     domain: 'personalroute.com',
     projectIsProduction: true,
     ports: {
-        [modules.api]: 44444,
-        [modules.www]: 80,
-        [modules.admin]: null,
-        [modules.shop]: null,
-        [modules.movies]: null,
-        [modules.needcaradmin]: null,
-        [modules.needcar]: null,
+        [modules_1.default.api]: 44444,
+        [modules_1.default.www]: 80,
+        [modules_1.default.admin]: null,
+        [modules_1.default.shop]: null,
+        [modules_1.default.movies]: null,
+        [modules_1.default.needcaradmin]: null,
+        [modules_1.default.needcar]: null,
     },
     projectProviderPublicKeyOneSignal: `52afa7eb-d2cd-4c7e-b641-b4affca80597`,
     projectProviderPublicKeyFacebook: `426837044925875`,

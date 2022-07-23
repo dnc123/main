@@ -1,4 +1,6 @@
-export default {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
     light: `white`,
     // dark: `#018cc1`,
     dark: `#0151C1`,

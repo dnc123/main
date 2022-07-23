@@ -1,4 +1,6 @@
-export default function (keyValQueryParams = {}) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(keyValQueryParams = {}) {
     return Object.keys(keyValQueryParams)
         .filter((key) => {
         return keyValQueryParams[key] !== null
@@ -9,3 +11,4 @@ export default function (keyValQueryParams = {}) {
     })
         .join(`&`);
 }
+exports.default = default_1;

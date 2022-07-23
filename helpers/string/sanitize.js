@@ -1,4 +1,6 @@
-export default function (value) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(value) {
     if (value === null) {
         return value;
     }
@@ -8,3 +10,4 @@ export default function (value) {
         .replace(/'/g, '&#39;')
         .replace(/"/g, '&#34;');
 }
+exports.default = default_1;

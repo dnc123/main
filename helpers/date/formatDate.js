@@ -1,5 +1,7 @@
-import { format as dateFNSFormat } from 'date-fns';
-export default function (dateObject, isYearIncluded = true, isMonthIncluded = true, isDayIncluded = true) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const date_fns_1 = require("date-fns");
+function default_1(dateObject, isYearIncluded = true, isMonthIncluded = true, isDayIncluded = true) {
     if (typeof dateObject === `string`) {
         dateObject = new Date(dateObject);
     }
@@ -13,5 +15,6 @@ export default function (dateObject, isYearIncluded = true, isMonthIncluded = tr
     if (isDayIncluded) {
         dateArr.push(`dd`);
     }
-    return dateFNSFormat(dateObject, dateArr.join(`-`));
+    return date_fns_1.format(dateObject, dateArr.join(`-`));
 }
+exports.default = default_1;

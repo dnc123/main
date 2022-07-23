@@ -1,4 +1,6 @@
-export default function (targetObject) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(targetObject) {
     let propNames = Object.getOwnPropertyNames(targetObject);
     for (let i = 0; i < propNames.length; i++) {
         let propName = propNames[i];
@@ -7,3 +9,4 @@ export default function (targetObject) {
         }
     }
 }
+exports.default = default_1;

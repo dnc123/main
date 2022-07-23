@@ -1,4 +1,6 @@
-export default function (text = ``) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(text = ``) {
     const a = `àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;`;
     const b = `aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------`;
     const p = new RegExp(a.split(``).join(`|`), `g`);
@@ -12,3 +14,4 @@ export default function (text = ``) {
         .replace(/^-+/, ``) // Trim - from start of text
         .replace(/-+$/, ``); // Trim - from end of text
 }
+exports.default = default_1;

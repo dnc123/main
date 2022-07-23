@@ -1,4 +1,6 @@
-export default function (value) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(value) {
     try {
         JSON.parse(value);
         return true;
@@ -7,3 +9,4 @@ export default function (value) {
         return false;
     }
 }
+exports.default = default_1;

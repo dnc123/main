@@ -1,4 +1,6 @@
-export default function (request) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(request) {
     return new Promise((resolve, reject) => {
         request.onsuccess = () => {
             return resolve(request.result);
@@ -8,3 +10,4 @@ export default function (request) {
         };
     });
 }
+exports.default = default_1;

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,19 +8,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import removeFromArrayByKey from '../array/removeFromArrayByKey';
-import groupByKey from '../array/groupByKey';
-import findMaxValue from '../array/findMaxValue';
-import filterRemoveObjectDuplicates from '../array/filterRemoveObjectDuplicates';
-import forEachAsync from '../array/forEachAsync';
-import shuffle from '../array/shuffle';
-import sortObjectArrayByStringKey from '../array/sortObjectArrayByStringKey';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const removeFromArrayByKey_1 = __importDefault(require("../array/removeFromArrayByKey"));
+const groupByKey_1 = __importDefault(require("../array/groupByKey"));
+const findMaxValue_1 = __importDefault(require("../array/findMaxValue"));
+const filterRemoveObjectDuplicates_1 = __importDefault(require("../array/filterRemoveObjectDuplicates"));
+const forEachAsync_1 = __importDefault(require("../array/forEachAsync"));
+const shuffle_1 = __importDefault(require("../array/shuffle"));
+const sortObjectArrayByStringKey_1 = __importDefault(require("../array/sortObjectArrayByStringKey"));
 test(`Array shuffle`, () => {
     const randomNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-    shuffle(randomNumbers);
+    shuffle_1.default(randomNumbers);
     expect(randomNumbers).not.toMatchObject([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
     const randomNumber = [1];
-    shuffle(randomNumber);
+    shuffle_1.default(randomNumber);
     expect(randomNumber).toMatchObject([1]);
 });
 test(`forEachAsync`, () => __awaiter(void 0, void 0, void 0, function* () {
@@ -30,7 +35,7 @@ test(`forEachAsync`, () => __awaiter(void 0, void 0, void 0, function* () {
         }, 100);
     });
     const shortPromise = Promise.resolve(`short`);
-    yield forEachAsync([longPromise, shortPromise], (resolvedValue) => __awaiter(void 0, void 0, void 0, function* () {
+    yield forEachAsync_1.default([longPromise, shortPromise], (resolvedValue) => __awaiter(void 0, void 0, void 0, function* () {
         testString += yield resolvedValue;
     }));
     expect(testString).toEqual(`longshort`);
@@ -41,13 +46,13 @@ test(`Remove array duplicates`, () => {
         { name: `Cuker` },
         { name: `Bob` },
     ];
-    expect(filterRemoveObjectDuplicates(users, `name`)).toMatchObject([
+    expect(filterRemoveObjectDuplicates_1.default(users, `name`)).toMatchObject([
         { name: `Bob` },
         { name: `Cuker` },
     ]);
 });
 test(`Get max`, () => {
-    expect(findMaxValue([1, 6, 7, 4])).toEqual(7);
+    expect(findMaxValue_1.default([1, 6, 7, 4])).toEqual(7);
 });
 test(`Remove from array by key`, () => {
     const nameKey = `name`;
@@ -58,7 +63,7 @@ test(`Remove from array by key`, () => {
         { [nameKey]: joshName },
         { [nameKey]: sallyName },
     ];
-    removeFromArrayByKey(users, nameKey, joshName);
+    removeFromArrayByKey_1.default(users, nameKey, joshName);
     expect(users[1][nameKey]).toEqual(sallyName);
 });
 test(`Group array items`, () => {
@@ -67,7 +72,7 @@ test(`Group array items`, () => {
         { age: 16 },
         { age: 5 },
     ];
-    expect(groupByKey(users, `age`)).toMatchObject({
+    expect(groupByKey_1.default(users, `age`)).toMatchObject({
         16: [
             { age: 16 },
         ],
@@ -83,7 +88,7 @@ test(`Array sort by object key`, () => {
         { name: `Cuker` },
         { name: `Adam` },
     ];
-    expect(sortObjectArrayByStringKey(users, `name`)).toMatchObject([
+    expect(sortObjectArrayByStringKey_1.default(users, `name`)).toMatchObject([
         { name: `Adam` },
         { name: `Bob` },
         { name: `Cuker` },

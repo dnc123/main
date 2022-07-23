@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,22 +8,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import getProjectURL from '../../../features/core/methods/getProjectURL';
-import getCookie from '../../../helpers/cookie/get';
-import { JWTKey } from '../../auth/constants';
-import modules from '../../../features/core/constants/modules';
-export function get(endpoint, payload = {}) {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.put = exports.remove = exports.post = exports.get = void 0;
+const getProjectURL_1 = __importDefault(require("../../../features/core/methods/getProjectURL"));
+const get_1 = __importDefault(require("../../../helpers/cookie/get"));
+const constants_1 = require("../../auth/constants");
+const modules_1 = __importDefault(require("../../../features/core/constants/modules"));
+function get(endpoint, payload = {}) {
     return __awaiter(this, void 0, void 0, function* () {
-        let targetURL = getProjectURL(modules.api, endpoint);
+        let targetURL = getProjectURL_1.default(modules_1.default.api, endpoint);
         if (payload) {
             targetURL += `?data=${JSON.stringify(payload)}`;
         }
         return sendRequest(targetURL);
     });
 }
-export function post(endpoint, payload = {}) {
+exports.get = get;
+function post(endpoint, payload = {}) {
     return __awaiter(this, void 0, void 0, function* () {
-        const fullEndpoint = getProjectURL(modules.api, endpoint);
+        const fullEndpoint = getProjectURL_1.default(modules_1.default.api, endpoint);
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -36,9 +43,10 @@ export function post(endpoint, payload = {}) {
         return sendRequest(fullEndpoint, requestOptions);
     });
 }
-export function remove(endpoint, payload = {}) {
+exports.post = post;
+function remove(endpoint, payload = {}) {
     return __awaiter(this, void 0, void 0, function* () {
-        const fullEndpoint = getProjectURL(modules.api, endpoint);
+        const fullEndpoint = getProjectURL_1.default(modules_1.default.api, endpoint);
         const requestOptions = {
             method: 'DELETE',
             headers: {
@@ -52,19 +60,21 @@ export function remove(endpoint, payload = {}) {
         return sendRequest(fullEndpoint, requestOptions);
     });
 }
-export function put() {
+exports.remove = remove;
+function put() {
     return __awaiter(this, void 0, void 0, function* () {
     });
 }
+exports.put = put;
 function sendRequest(endpoint, options = {}) {
     return __awaiter(this, void 0, void 0, function* () {
-        const JWTCookie = getCookie(JWTKey);
+        const JWTCookie = get_1.default(constants_1.JWTKey);
         if (JWTCookie) {
             if (!options.headers) {
                 options.headers = {};
             }
             // @ts-ignore
-            options.headers[JWTKey] = JWTCookie;
+            options.headers[constants_1.JWTKey] = JWTCookie;
         }
         let response = yield fetch(endpoint, options);
         if (!response.ok) {

@@ -1,4 +1,6 @@
-import { emailRegex, dateRegex } from '../regex/constants';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = require("../regex/constants");
 test(`Email regex`, () => {
     const testEmails = {
         valid: [
@@ -44,12 +46,12 @@ test(`Email regex`, () => {
         ],
     };
     testEmails.valid.forEach((testEmail) => {
-        expect(emailRegex.test(testEmail)).toBeTruthy();
+        expect(constants_1.emailRegex.test(testEmail)).toBeTruthy();
     });
     testEmails.invalid.forEach((testEmail) => {
-        expect(emailRegex.test(testEmail)).toBeFalsy();
+        expect(constants_1.emailRegex.test(testEmail)).toBeFalsy();
     });
 });
 test(`Date regex`, () => {
-    expect(dateRegex.test(`1995-06-24`)).toBeTruthy();
+    expect(constants_1.dateRegex.test(`1995-06-24`)).toBeTruthy();
 });

@@ -1,4 +1,6 @@
-export default function (base64) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(base64) {
     const byteString = new Buffer(base64, 'base64').toString('binary');
     const ab = new Buffer(byteString.length);
     const ia = new Uint8Array(ab);
@@ -7,3 +9,4 @@ export default function (base64) {
     }
     return ab;
 }
+exports.default = default_1;

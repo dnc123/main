@@ -1,5 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const recentUniquelyGeneratedStrings = [];
-export default function (hashStrength = 12) {
+function default_1(hashStrength = 12) {
     let uniqueString;
     do {
         const possibleCharacters = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`;
@@ -15,3 +17,4 @@ export default function (hashStrength = 12) {
     }, 0);
     return uniqueString;
 }
+exports.default = default_1;

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,12 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import getTable from './getTable';
-import getDatabase from './getDatabase';
-import handleIndexedDBRequest from './handleIndexedDBRequest';
-export default function (tableName, filters) {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const getTable_1 = __importDefault(require("./getTable"));
+const getDatabase_1 = __importDefault(require("./getDatabase"));
+const handleIndexedDBRequest_1 = __importDefault(require("./handleIndexedDBRequest"));
+function default_1(tableName, filters) {
     return __awaiter(this, void 0, void 0, function* () {
-        const results = yield handleIndexedDBRequest(getTable(yield getDatabase(), tableName).getAll());
+        const results = yield handleIndexedDBRequest_1.default(getTable_1.default(yield getDatabase_1.default(), tableName).getAll());
         if (filters) {
             const filtersArr = Object.entries(filters);
             return results.filter((result) => {
@@ -27,3 +32,4 @@ export default function (tableName, filters) {
         return results;
     });
 }
+exports.default = default_1;

@@ -1,7 +1,10 @@
-import { reactive } from 'vue';
-export function useEventBus() {
-    const subscribers = reactive({});
-    const subscribersOnce = reactive({});
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useEventBus = void 0;
+const vue_1 = require("vue");
+function useEventBus() {
+    const subscribers = vue_1.reactive({});
+    const subscribersOnce = vue_1.reactive({});
     function busEmit(key, payload) {
         if (subscribersOnce[key]) {
             subscribersOnce[key].forEach((subscriberCallback) => {
@@ -44,3 +47,4 @@ export function useEventBus() {
         busOnce,
     };
 }
+exports.useEventBus = useEventBus;

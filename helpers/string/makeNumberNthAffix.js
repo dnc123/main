@@ -1,4 +1,6 @@
-export default function (number) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(number) {
     const getCorrectAffix = (affix) => {
         return number.toString().substr(-2, 1) === `1` && number > 10
             ? `th`
@@ -15,3 +17,4 @@ export default function (number) {
             return `th`;
     }
 }
+exports.default = default_1;
