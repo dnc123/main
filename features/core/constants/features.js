@@ -12,3 +12,4 @@ export const featureTranslate = 'translate';
 export const featureCurrency = 'currency';
 export const featureMovies = 'movies';
 export const featureNeedcar = 'needcar';
+export const featureEvents = 'events';
