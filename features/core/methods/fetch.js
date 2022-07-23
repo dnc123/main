@@ -1,6 +1,6 @@
 import getProjectURL from '../../../features/core/methods/getProjectURL';
 import getCookie from '../../../helpers/cookie/get';
-import { authCookieKeyJWT } from '../../auth/constants';
+import { JWTKey } from '../../auth/constants';
 import modules from '../../../features/core/constants/modules';
 export async function get(endpoint, payload = {}) {
     let targetURL = getProjectURL(modules.api, endpoint);
@@ -40,13 +40,13 @@ export async function remove(endpoint, payload = {}) {
 export async function put() {
 }
 async function sendRequest(endpoint, options = {}) {
-    const JWTCookie = getCookie(authCookieKeyJWT);
+    const JWTCookie = getCookie(JWTKey);
     if (JWTCookie) {
         if (!options.headers) {
             options.headers = {};
         }
         // @ts-ignore
-        options.headers.JWT = JWTCookie;
+        options.headers[JWTKey] = JWTCookie;
     }
     let response = await fetch(endpoint, options);
     if (!response.ok) {
