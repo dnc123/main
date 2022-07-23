@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function default_1(value) {
+export default function (value) {
     if (value === null) {
         return value;
     }
@@ -10,4 +8,3 @@ function default_1(value) {
         .replace(/'/g, '&#39;')
         .replace(/"/g, '&#34;');
 }
-exports.default = default_1;

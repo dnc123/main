@@ -1,35 +1,30 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var cleanObject_1 = __importDefault(require("../object/cleanObject"));
-var deepClone_1 = __importDefault(require("../object/deepClone"));
-test("Remove object keys containing empty values", function () {
-    var testObject = {
+import cleanObject from '../object/cleanObject';
+import deepClone from '../object/deepClone';
+test(`Remove object keys containing empty values`, () => {
+    const testObject = {
         a: 1,
         b: 2,
         c: null,
         d: undefined,
-        e: "sdfsad",
+        e: `sdfsad`,
     };
-    cleanObject_1.default(testObject);
+    cleanObject(testObject);
     expect(testObject).toMatchObject({
         a: 1,
         b: 2,
-        e: "sdfsad",
+        e: `sdfsad`,
     });
 });
-test("Object cloning", function () {
-    var objectA = {
-        test: "aha",
+test(`Object cloning`, () => {
+    const objectA = {
+        test: `aha`,
         deep: {
             very: {
-                nice: ":)",
+                nice: `:)`,
             },
         },
     };
-    var objectB = deepClone_1.default(objectA);
+    const objectB = deepClone(objectA);
     expect(objectA === objectB).toBeFalsy();
     expect(objectA).toMatchObject(objectB);
 });

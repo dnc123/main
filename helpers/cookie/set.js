@@ -1,20 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var ENV_1 = __importDefault(require("../../ENV"));
-var js_cookie_1 = require("js-cookie");
-var DAYS_IN_YEAR = 365;
-function default_1(key, value, expiresInDays, isSharedAcrossSubdomains) {
-    if (expiresInDays === void 0) { expiresInDays = DAYS_IN_YEAR; }
-    if (isSharedAcrossSubdomains === void 0) { isSharedAcrossSubdomains = false; }
-    var options = {
+import ENVBoth from '../../ENV';
+import { set as setCookie } from 'js-cookie';
+const DAYS_IN_YEAR = 365;
+export default function (key, value, expiresInDays = DAYS_IN_YEAR, isSharedAcrossSubdomains = false) {
+    const options = {
         expires: expiresInDays,
     };
     if (isSharedAcrossSubdomains) {
-        options.domain = ENV_1.default.clientProxyDomain;
+        options.domain = ENVBoth.clientProxyDomain;
     }
-    js_cookie_1.set(key, value, options);
+    setCookie(key, value, options);
 }
-exports.default = default_1;

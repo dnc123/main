@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var constants_1 = require("./constants");
-function default_1(latitude, metersToAdd) {
-    return latitude + (metersToAdd * constants_1.ONE_METER_IN_DEGREES);
+import { ONE_METER_IN_DEGREES } from './constants';
+export default function (latitude, metersToAdd) {
+    return latitude + (metersToAdd * ONE_METER_IN_DEGREES);
 }
-exports.default = default_1;
