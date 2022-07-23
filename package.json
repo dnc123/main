@@ -1,11 +1,12 @@
 {
     "name": "@donatas123/main",
-    "version": "1.0.201",
+    "version": "1.0.202",
     "description": "",
     "main": "index.js",
     "scripts": {
+        "build-non-ts-files": "copyfiles -u 1 src/**/*.scss dist/",
         "test": "jest",
-        "build": "tsc",
+        "build": "tsc && npm run build-non-ts-files",
         "push-to-github": "git add . && git commit --allow-empty -m \"publish\" && git push",
         "pub": "npm run build && npm run test && npm version patch --force && npm run push-to-github && cp package.json dist/package.json && (cd dist && npm publish) && rm dist/package.json"
     },
@@ -34,6 +35,7 @@
         "@types/jsonwebtoken": "^8.5.5",
         "@types/ws": "^7.4.4",
         "babel-jest": "^27.0.2",
+        "copyfiles": "^2.4.1",
         "force-file-structure": "^1.0.1",
         "jest": "^27.0.4",
         "ts-jest": "^27.0.2"
