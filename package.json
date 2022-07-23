@@ -1,9 +1,8 @@
 {
     "name": "@donatas123/main",
-    "version": "1.0.197",
+    "version": "1.0.198",
     "description": "",
     "main": "index.js",
-    "type": "module",
     "scripts": {
         "test": "jest",
         "compile": "tsc --declaration",
