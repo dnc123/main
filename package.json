@@ -1,6 +1,6 @@
 {
     "name": "@donatas123/main",
-    "version": "1.0.204",
+    "version": "1.0.205",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -9,8 +9,8 @@
         "pub:createDistDir": "cp src dist -r",
         "pub:deleteTSFiles": "find dist -type f -name '*.ts' ! -name '*.d.ts' -delete",
         "pub:updateVersion": "npm version patch --force",
-        "pub:publishOnlyDist": "cp package.json src/package.json && (cd src && npm publish) && rm src/package.json",
-        "pub": "npm run test && npm run pub:removeOldDist && npm run pub:createDistDir && npm run build && npm run pub:deleteTSFiles && npm run pub:updateVersion && npm run push-to-github && npm run pub:publishOnlyDist",
+        "pub:publishOnlyDist": "cp package.json dist/package.json && (cd dist && npm publish) && rm dist/package.json",
+        "pub": "npm run test && npm run pub:removeOldDist && npm run pub:createDistDir && npm run build && npm run pub:deleteTSFiles && npm run pub:updateVersion && npm run push-to-github && npm run pub:publishOnlyDist && npm run pub:removeOldDist",
         "test": "tsc jest.config.ts && jest",
         "push-to-github": "git add . && git commit --allow-empty -m \"publish\" && git push"
     },

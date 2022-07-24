@@ -1,1 +1,0 @@
-export default function (dateObject: Date, isYearIncluded?: boolean, isMonthIncluded?: boolean, isDayIncluded?: boolean, isHoursIncluded?: boolean, isMinutesIncluded?: boolean, isSecondsIncluded?: boolean, isMillisecondsIncluded?: boolean): string;
