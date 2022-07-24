@@ -1,12 +1,18 @@
 {
     "name": "@donatas123/main",
-    "version": "1.0.203",
+    "version": "1.0.204",
     "description": "",
     "main": "index.js",
     "scripts": {
+        "build": "tsc",
+        "pub:removeOldDist": "rm -rf dist",
+        "pub:createDistDir": "cp src dist -r",
+        "pub:deleteTSFiles": "find dist -type f -name '*.ts' ! -name '*.d.ts' -delete",
+        "pub:updateVersion": "npm version patch --force",
+        "pub:publishOnlyDist": "cp package.json src/package.json && (cd src && npm publish) && rm src/package.json",
+        "pub": "npm run test && npm run pub:removeOldDist && npm run pub:createDistDir && npm run build && npm run pub:deleteTSFiles && npm run pub:updateVersion && npm run push-to-github && npm run pub:publishOnlyDist",
         "test": "tsc jest.config.ts && jest",
-        "push-to-github": "git add . && git commit --allow-empty -m \"publish\" && git push",
-        "pub": "npm run test && npm version patch --force && npm run push-to-github && cp package.json src/package.json && (cd src && npm publish) && rm src/package.json"
+        "push-to-github": "git add . && git commit --allow-empty -m \"publish\" && git push"
     },
     "author": "",
     "license": "ISC",
