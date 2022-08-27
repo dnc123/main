@@ -1,7 +1,8 @@
 <template>
     <!--    <div class='map__map' :style='mapStyles' @transitionend='invalidateMapSize()'>-->
 
-    <div class='map' :id='id' />
+    <div class='map' id='map' />
+    <slot name='map' v-if='map' />
 
 
     <!--        <div v-if='map' class='map__map__controls'>-->
@@ -36,33 +37,39 @@
 </template>
 
 <script setup>
-    import {onMounted, onBeforeMount, ref} from 'vue';
-    import {useEventBus} from '../../core/composables/useEventBus';
+    import {onMounted, onBeforeMount} from 'vue';
     import {getClient} from '../../../api/leaflet';
+    import {useMap} from '../composables/useMap';
+    import {MAP_ITEM_TYPE_MARKER} from '../constants/mapItemTypes';
 
-    let mapCount = 0;
-
-    const props = defineProps({
-        id: String,
-    });
-
-    const {busEmit, busOn} = useEventBus();
-    const map = ref(null);
+    const {setMap, map} = useMap();
 
     onBeforeMount(async () => {
-        mapCount++;
-
         // Starts loading leaflet client
         await getClient();
     });
 
     onMounted(mountMap);
 
+    function centerMarkersOnMapLoad () {
+        setTimeout(() => {
+            const mapMarkers = [];
+
+            map.value.eachLayer((layer) => {
+                if (layer.options.type === MAP_ITEM_TYPE_MARKER) {
+                    mapMarkers.push(layer.getLatLng());
+                }
+            });
+
+            map.value.fitBounds(mapMarkers);
+        }, 200);
+    }
+
     async function mountMap () {
         const leaflet = await getClient();
         //await require(`leaflet-routing-machine`);
 
-        map.value = leaflet.map(props.id, {
+        const map = leaflet.map('map', {
             zoomControl: false,
             attributionControl: false,
 
@@ -71,6 +78,8 @@
                 [90, 180],
             ],
         });
+
+        setMap(map);
 
         // const emittableEventListeners = [
         //     `click`,
@@ -103,7 +112,7 @@
         //     }
         // });
         //
-        map.value.setView([
+        map.setView([
             10,
             10,
         ], 10);
@@ -151,7 +160,9 @@
             {
                 maxZoom: 18,
             },
-        ).addTo(map.value);
+        ).addTo(map);
+
+        centerMarkersOnMapLoad();
 
         // setTimeout(() => {
         //     map.value.invalidateSize();

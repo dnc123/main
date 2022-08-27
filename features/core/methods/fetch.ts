@@ -14,6 +14,7 @@ export async function get (endpoint: string, payload: ObjectWithRandomProps = {}
 	return sendRequest(targetURL);
 }
 
+
 export async function post (endpoint: string, payload: ObjectWithRandomProps = {}) {
 	const fullEndpoint = getProjectURL(modules.api, endpoint);
 

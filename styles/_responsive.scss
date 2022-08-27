@@ -1,11 +1,11 @@
 @mixin isDesktop {
-	@media (min-width: 700px) {
+	@media (min-width: 600px) {
 		@content;
 	}
 }
 
 @mixin isMobile {
-	@media (max-width: 699px) {
+	@media (max-width: 599px) {
 		@content;
 	}
 }
