@@ -2,9 +2,9 @@ import getProjectURL from '../../../features/core/methods/getProjectURL';
 import getCookie from '../../../helpers/cookie/get';
 import {JWTKey} from '../../auth/constants';
 import modules from '../../../features/core/constants/modules';
-import {ObjectWithRandomProps} from '../../../types';
+// import {ObjectWithRandomProps} from '~main/types';
 
-export async function get (endpoint: string, payload: ObjectWithRandomProps = {}) {
+export async function get (endpoint: string, payload: any = {}) {
 	let targetURL = getProjectURL(modules.api, endpoint);
 
 	if (payload) {
@@ -15,7 +15,7 @@ export async function get (endpoint: string, payload: ObjectWithRandomProps = {}
 }
 
 
-export async function post (endpoint: string, payload: ObjectWithRandomProps = {}) {
+export async function post (endpoint: string, payload: any = {}) {
 	const fullEndpoint = getProjectURL(modules.api, endpoint);
 
 	const requestOptions: RequestInit = {
@@ -34,7 +34,7 @@ export async function post (endpoint: string, payload: ObjectWithRandomProps = {
 	return sendRequest(fullEndpoint, requestOptions);
 }
 
-export async function remove (endpoint: string, payload: ObjectWithRandomProps = {}) {
+export async function remove (endpoint: string, payload: any = {}) {
 	const fullEndpoint = getProjectURL(modules.api, endpoint);
 
 	const requestOptions: RequestInit = {
