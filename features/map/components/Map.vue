@@ -186,8 +186,8 @@
     // import { mapGetters, mapState } from 'vuex';
     // import { namespace as responsiveNamespace } from '@/store/responsive';
     // import { types as responsiveGetterTypes } from '@/store/responsive/getters';
-    // import { fromBlobToBase64 } from '@donatas123/main/helpers/file';
-    // import { indexedDBMapTilesDBName } from '@donatas123/main/features/tripOffline/constants';
+    // import { fromBlobToBase64 } from '~main/helpers/file';
+    // import { indexedDBMapTilesDBName } from '~main/features/tripOffline/constants';
     // import getMapTileURL from '@/features/map/methods/getMapTileURL';
     // import { namespace as baseNamespace } from '@/store/base';
     // import { types as baseStateTypes } from '@/store/base/state';

@@ -50,8 +50,8 @@ export default function (
 			}
 		};
 
-		createDBRequest.onerror = (err) => {
-			return reject();
+		createDBRequest.onerror = (error) => {
+			return reject(error);
 		};
 	});
 }
