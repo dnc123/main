@@ -11,5 +11,9 @@ export const featureWeather = 'weather';
 export const featureTranslate = 'translate';
 export const featureCurrency = 'currency';
 export const featureMovies = 'movies';
-export const featureNeedcar = 'needcar';
 export const featureEvents = 'events';
+
+export const featureNeedcar = 'needcar';
+export const featureAdminFinance = 'adminFinance';
+
+export const featureAPIImage = 'APIImage';
